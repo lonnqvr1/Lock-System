@@ -1,0 +1,342 @@
+EESchema Schematic File Version 2
+LIBS:power
+LIBS:device
+LIBS:transistors
+LIBS:conn
+LIBS:linear
+LIBS:regul
+LIBS:74xx
+LIBS:cmos4000
+LIBS:adc-dac
+LIBS:memory
+LIBS:xilinx
+LIBS:microcontrollers
+LIBS:dsp
+LIBS:microchip
+LIBS:analog_switches
+LIBS:motorola
+LIBS:texas
+LIBS:intel
+LIBS:audio
+LIBS:interface
+LIBS:digital-audio
+LIBS:philips
+LIBS:display
+LIBS:cypress
+LIBS:siliconi
+LIBS:opto
+LIBS:atmel
+LIBS:contrib
+LIBS:valves
+LIBS:arduinos
+EELAYER 25 0
+EELAYER END
+$Descr A4 11693 8268
+encoding utf-8
+Sheet 1 1
+Title ""
+Date ""
+Rev ""
+Comp ""
+Comment1 ""
+Comment2 ""
+Comment3 ""
+Comment4 ""
+$EndDescr
+$Comp
+L Arduino_Nano U?
+U 1 1 590442FD
+P 5400 3200
+F 0 "U?" H 5400 2250 60  0000 C CNN
+F 1 "Arduino_Nano" H 5400 3950 60  0000 C CNN
+F 2 "" H 5015 3485 60  0000 C CNN
+F 3 "" H 5015 3485 60  0000 C CNN
+	1    5400 3200
+	1    0    0    -1  
+$EndComp
+$Comp
+L Relay_Module U?
+U 1 1 590460FC
+P 5350 1500
+F 0 "U?" H 5350 800 60  0000 C CNN
+F 1 "Relay_Module" H 5350 2100 60  0000 C CNN
+F 2 "" H 5350 1500 60  0000 C CNN
+F 3 "" H 5350 1500 60  0000 C CNN
+	1    5350 1500
+	1    0    0    -1  
+$EndComp
+$Comp
+L RFID_module U?
+U 1 1 59046424
+P 3050 3500
+F 0 "U?" H 3050 3000 60  0000 C CNN
+F 1 "RFID_module" H 3045 3900 60  0000 C CNN
+F 2 "" H 3070 3500 60  0000 C CNN
+F 3 "" H 3070 3500 60  0000 C CNN
+	1    3050 3500
+	1    0    0    -1  
+$EndComp
+$Comp
+L CONN_01X02 P?
+U 1 1 590465AD
+P 2950 2550
+F 0 "P?" H 2950 2700 50  0000 C CNN
+F 1 "LEDs_Personal" V 3050 2550 50  0000 C CNN
+F 2 "" H 2950 2550 50  0000 C CNN
+F 3 "" H 2950 2550 50  0000 C CNN
+	1    2950 2550
+	-1   0    0    1   
+$EndComp
+$Comp
+L Electronic_Lock U?
+U 1 1 59047245
+P 7350 3450
+F 0 "U?" H 7345 3200 60  0000 C CNN
+F 1 "Electronic_Lock" H 7380 3705 60  0000 C CNN
+F 2 "" H 7350 3450 60  0000 C CNN
+F 3 "" H 7350 3450 60  0000 C CNN
+	1    7350 3450
+	-1   0    0    1   
+$EndComp
+$Comp
+L Electronic_Lock U?
+U 1 1 59047367
+P 7350 2700
+F 0 "U?" H 7345 2450 60  0000 C CNN
+F 1 "Electronic_Lock" H 7380 2955 60  0000 C CNN
+F 2 "" H 7350 2700 60  0000 C CNN
+F 3 "" H 7350 2700 60  0000 C CNN
+	1    7350 2700
+	-1   0    0    1   
+$EndComp
+$Comp
+L CONN_01X02 P?
+U 1 1 59047B33
+P 3100 1700
+F 0 "P?" H 3100 1850 50  0000 C CNN
+F 1 "LEDs_Workwear" V 3200 1700 50  0000 C CNN
+F 2 "" H 3100 1700 50  0000 C CNN
+F 3 "" H 3100 1700 50  0000 C CNN
+	1    3100 1700
+	-1   0    0    1   
+$EndComp
+$Comp
+L CONN_01X02 P?
+U 1 1 59047E5D
+P 6900 2000
+F 0 "P?" H 6900 2150 50  0000 C CNN
+F 1 "PWR" V 7000 2000 50  0000 C CNN
+F 2 "" H 6900 2000 50  0000 C CNN
+F 3 "" H 6900 2000 50  0000 C CNN
+	1    6900 2000
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	6100 1950 6700 1950
+Text Label 6250 1950 0    60   ~ 0
+5V_nano
+Wire Wire Line
+	6200 2050 6700 2050
+Text Label 6250 2050 0    60   ~ 0
+GND_nano
+$Comp
+L CONN_01X02 P?
+U 1 1 590482C5
+P 3800 1300
+F 0 "P?" H 3800 1450 50  0000 C CNN
+F 1 "PWR" V 3900 1300 50  0000 C CNN
+F 2 "" H 3800 1300 50  0000 C CNN
+F 3 "" H 3800 1300 50  0000 C CNN
+	1    3800 1300
+	-1   0    0    1   
+$EndComp
+Text Label 4750 1250 2    60   ~ 0
+5V_relays
+Text Label 4750 1350 2    60   ~ 0
+GND_relays
+$Comp
+L CONN_01X02 P?
+U 1 1 59048864
+P 7900 1350
+F 0 "P?" H 7900 1500 50  0000 C CNN
+F 1 "PWR" V 8000 1350 50  0000 C CNN
+F 2 "" H 7900 1350 50  0000 C CNN
+F 3 "" H 7900 1350 50  0000 C CNN
+	1    7900 1350
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	7700 1300 7250 1300
+Text Label 7250 1300 0    60   ~ 0
+3V3_RFID
+Wire Wire Line
+	7700 1400 7250 1400
+Text Label 7250 1400 0    60   ~ 0
+GND_RFID
+$Comp
+L CONN_01X02 P?
+U 1 1 59048D73
+P 6850 1100
+F 0 "P?" H 6850 1250 50  0000 C CNN
+F 1 "PWR" V 6950 1100 50  0000 C CNN
+F 2 "" H 6850 1100 50  0000 C CNN
+F 3 "" H 6850 1100 50  0000 C CNN
+	1    6850 1100
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	6650 1050 6200 1050
+Text Label 6200 1050 0    60   ~ 0
+12V_Locks
+Wire Wire Line
+	6650 1150 6200 1150
+Text Label 6200 1150 0    60   ~ 0
+GND_Locks
+Wire Wire Line
+	4000 1250 4950 1250
+Wire Wire Line
+	4000 1350 4950 1350
+Wire Wire Line
+	4700 3000 4450 3000
+Wire Wire Line
+	4450 3000 4450 1750
+Wire Wire Line
+	4450 1750 4950 1750
+Wire Wire Line
+	4700 3100 4300 3100
+Wire Wire Line
+	4300 3100 4300 1650
+Wire Wire Line
+	4300 1650 4950 1650
+Wire Wire Line
+	4700 3200 4150 3200
+Wire Wire Line
+	4150 3200 4150 1550
+Wire Wire Line
+	4150 1550 4950 1550
+Wire Wire Line
+	4700 3300 4000 3300
+Wire Wire Line
+	4000 3300 4000 1450
+Wire Wire Line
+	4000 1450 4950 1450
+$Comp
+L CONN_01X03 P?
+U 1 1 5908CC47
+P 3150 4550
+F 0 "P?" H 3150 4750 50  0000 C CNN
+F 1 "Servo" V 3250 4550 50  0000 C CNN
+F 2 "" H 3150 4550 50  0000 C CNN
+F 3 "" H 3150 4550 50  0000 C CNN
+	1    3150 4550
+	-1   0    0    1   
+$EndComp
+Text Label 4450 2550 1    60   ~ 0
+Relay_signal4
+Text Label 4300 2550 1    60   ~ 0
+Relay_signal3
+Text Label 4150 2550 1    60   ~ 0
+Relay_signal2
+Text Label 4000 2550 1    60   ~ 0
+Relay_signal1
+NoConn ~ 4700 2600
+NoConn ~ 4700 2700
+Wire Wire Line
+	4700 2900 3650 2900
+Wire Wire Line
+	3650 2700 3650 2900
+Wire Wire Line
+	3650 2900 3650 3400
+Wire Wire Line
+	4600 2300 6200 2300
+Wire Wire Line
+	6200 2300 6500 2300
+Wire Wire Line
+	6200 2050 6200 2300
+Wire Wire Line
+	6200 2300 6200 2700
+Wire Wire Line
+	6200 2700 6100 2700
+Connection ~ 6200 2300
+Wire Wire Line
+	4700 3900 4500 3900
+Wire Wire Line
+	4500 3900 4500 3700
+Wire Wire Line
+	4500 3700 3350 3700
+Wire Wire Line
+	4700 4000 4400 4000
+Wire Wire Line
+	4400 4000 4400 3600
+Wire Wire Line
+	4400 3600 3350 3600
+Wire Wire Line
+	6100 4000 6100 4200
+Wire Wire Line
+	6100 4200 3700 4200
+Wire Wire Line
+	3700 4200 3700 3800
+Wire Wire Line
+	3700 3800 3350 3800
+Wire Wire Line
+	3350 3900 4250 3900
+Wire Wire Line
+	4250 3900 4250 3800
+Wire Wire Line
+	4250 3800 4700 3800
+NoConn ~ 3350 3500
+Wire Wire Line
+	3350 3300 3450 3300
+Wire Wire Line
+	3450 3300 3450 3500
+Wire Wire Line
+	3450 3500 4600 3500
+Wire Wire Line
+	4600 3500 4600 3700
+Wire Wire Line
+	4600 3700 4700 3700
+Wire Wire Line
+	3350 3200 3900 3200
+Wire Wire Line
+	3900 3200 3900 4350
+Wire Wire Line
+	3900 4350 6250 4350
+Wire Wire Line
+	6250 4350 6250 3900
+Wire Wire Line
+	6250 3900 6100 3900
+Wire Wire Line
+	3650 3400 3350 3400
+Connection ~ 3650 2900
+Wire Wire Line
+	3350 4450 4050 4450
+Wire Wire Line
+	3650 2700 4600 2700
+Wire Wire Line
+	4600 2700 4600 2300
+Wire Wire Line
+	4050 4450 4050 3400
+Wire Wire Line
+	4050 3400 4700 3400
+Text Label 4550 4200 0    60   ~ 0
+SCK
+Text Label 4550 4350 0    60   ~ 0
+3V3
+Text Label 3450 4450 0    60   ~ 0
+Servo_Signal
+Wire Wire Line
+	6100 1950 6100 2150
+Wire Wire Line
+	6100 2150 6100 2600
+Wire Wire Line
+	3350 4550 6400 4550
+Wire Wire Line
+	6400 4550 6400 2150
+Wire Wire Line
+	6400 2150 6100 2150
+Connection ~ 6100 2150
+Wire Wire Line
+	3350 4650 6500 4650
+Wire Wire Line
+	6500 4650 6500 2300
+$EndSCHEMATC
