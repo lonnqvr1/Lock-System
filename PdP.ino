@@ -9,7 +9,7 @@
 // Blue rfid chip id F5 A6 18 AB
 
 #include<SPI.h>       // SPI communication library
-#include<Servo.h>     // Servo library
+//#include<Servo.h>     // Servo library No use for servo
 #include <MFRC522.h>  // RFID scanner library
 
 //----------Define Pins Used----------
@@ -28,7 +28,7 @@
 //----------------------------------------
 
 //----------Create instances for Servo and RFID scanner----------
-Servo doorPin;
+//Servo doorPin;
 MFRC522 mfrc522(rfidSda, rfidReset);
 //----------------------------------------
 
@@ -48,7 +48,9 @@ void setup() {
   pinMode(lockLimit_2, INPUT);
   digitalWrite(lockLimit_1, HIGH);  // turn on pullup resistor
   digitalWrite(lockLimit_2, HIGH);  // turn on pullop resisotr
-  doorPin.attach(servo);
+  digitalWrite(lockPersonal, HIGH);
+  digitalWrite(lockUpper, HIGH);
+//  doorPin.attach(servo);
   mfrc522.PCD_Init();
   ShowReaderDetails();
   mfrc522.PCD_SetAntennaGain(mfrc522.RxGain_max);
@@ -60,10 +62,20 @@ void loop() {
   }
   while (!successRead);
   if(mfrc522.uid.uidByte[0] == 0x5e && mfrc522.uid.uidByte[1] == 0x3B && mfrc522.uid.uidByte[2] == 0x86 && mfrc522.uid.uidByte[3] == 0xab){
-    Serial.println("Valkonen tagi!");// 5E 3B 86 AB
+    Serial.println("Valkonen tagi!");// 5E 3B 86 AB: Lindström representetive key
+    digitalWrite(lockUpper, LOW);
+    delay(100);
+    digitalWrite(lockUpper, HIGH);
+  }
+  if(lockLimit_1, LOW){
   }
   if(mfrc522.uid.uidByte[0] == 0xF5 && mfrc522.uid.uidByte[1] == 0xA6 && mfrc522.uid.uidByte[2] == 0x18 && mfrc522.uid.uidByte[3] == 0xab){
-    Serial.println("Sininen tagi!");// F5 A6 18 AB
+    Serial.println("Sininen tagi!");// F5 A6 18 AB: User key
+    digitalWrite(lockUpper, LOW);
+    digitalWrite(lockPersonal, LOW);
+    delay(100);
+    digitalWrite(lockUpper, HIGH);
+    digitalWrite(lockPersonal, HIGH);
   }
 }
 
