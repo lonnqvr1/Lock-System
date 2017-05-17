@@ -9,32 +9,27 @@
 // Blue rfid chip id F5 A6 18 AB
 
 #include<SPI.h>       // SPI communication library
-//#include<Servo.h>     // Servo library No use for servo
 #include <MFRC522.h>  // RFID scanner library
 
 //----------Define Pins Used----------
 #define ledsUpper 3
-#define ledsPersonal 2
+#define ledsPersonal 6
 #define lockPersonal 4
 #define lockUpper 5
-#define servo 6
 #define lockLimit_1 7
 #define lockLimit_2 8
 #define rfidReset 9
 #define rfidSda SDA
-//#define rfidMosi 11
-//#define rfidMiso 12
-//#define rfidSck 13
 //----------------------------------------
 
 //----------Create instances for Servo and RFID scanner----------
-//Servo doorPin;
 MFRC522 mfrc522(rfidSda, rfidReset);
 //----------------------------------------
 
 //----------Variables----------
 int successRead = 0;
 byte readCard[4];
+unsigned long scannerTime = 0;
 //----------------------------------------
 
 void setup() {
@@ -47,10 +42,11 @@ void setup() {
   pinMode(lockLimit_1, INPUT);
   pinMode(lockLimit_2, INPUT);
   digitalWrite(lockLimit_1, HIGH);  // turn on pullup resistor
-  digitalWrite(lockLimit_2, HIGH);  // turn on pullop resisotr
+  digitalWrite(lockLimit_2, HIGH);  // turn on pullop resistor
   digitalWrite(lockPersonal, HIGH);
   digitalWrite(lockUpper, HIGH);
-//  doorPin.attach(servo);
+  digitalWrite(ledsUpper, HIGH);
+  digitalWrite(ledsPersonal, HIGH);
   mfrc522.PCD_Init();
   ShowReaderDetails();
   mfrc522.PCD_SetAntennaGain(mfrc522.RxGain_max);
@@ -58,19 +54,31 @@ void setup() {
 
 void loop() {
   do {
-    successRead = getID();   // sets successRead to 1 when we get read from reader otherwise 0
+    successRead = getID();   // sets successRead to 1 when we get read from reader otherwise 0   
+    if(digitalRead(lockLimit_1) == HIGH){
+      Serial.println("locklimit low");
+      digitalWrite(ledsUpper, LOW);
+    }
+    if(digitalRead(lockLimit_1) == LOW){
+      Serial.println("locklimit high");
+      digitalWrite(ledsUpper, HIGH);
+    }
+    if(digitalRead(lockLimit_2) == HIGH){
+      Serial.println("locklimit low");
+      digitalWrite(ledsPersonal, LOW);
+    }
+    if(digitalRead(lockLimit_2) == LOW){
+      Serial.println("locklimit high");
+      digitalWrite(ledsPersonal, HIGH);
+    }
   }
   while (!successRead);
   if(mfrc522.uid.uidByte[0] == 0x5e && mfrc522.uid.uidByte[1] == 0x3B && mfrc522.uid.uidByte[2] == 0x86 && mfrc522.uid.uidByte[3] == 0xab){
-    Serial.println("Valkonen tagi!");// 5E 3B 86 AB: Lindström representetive key
     digitalWrite(lockUpper, LOW);
     delay(100);
     digitalWrite(lockUpper, HIGH);
   }
-  if(lockLimit_1, LOW){
-  }
   if(mfrc522.uid.uidByte[0] == 0xF5 && mfrc522.uid.uidByte[1] == 0xA6 && mfrc522.uid.uidByte[2] == 0x18 && mfrc522.uid.uidByte[3] == 0xab){
-    Serial.println("Sininen tagi!");// F5 A6 18 AB: User key
     digitalWrite(lockUpper, LOW);
     digitalWrite(lockPersonal, LOW);
     delay(100);
@@ -122,18 +130,3 @@ int getID() {
   return 1;
 }
 //------------------------------
-
-//----------For debugging----------
-// The following commented code shows the rfid card UID and other information about the card.
-//  // Look for new cards
-//    if ( ! mfrc522.PICC_IsNewCardPresent()) {
-//        return;
-//    }
-//
-//    // Select one of the cards
-//    if ( ! mfrc522.PICC_ReadCardSerial()) {
-//        return;
-//    }
-//
-//    // Dump debug info about the card. PICC_HaltA() is automatically called.
-//    mfrc522.PICC_DumpToSerial(&(mfrc522.uid));
