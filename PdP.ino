@@ -21,10 +21,10 @@
 #define lockLimit_1 7
 #define lockLimit_2 8
 #define rfidReset 9
-#define rfidSda 10
-#define rfidMosi 11
-#define rfidMiso 12
-#define rfidSck 13
+#define rfidSda SDA
+//#define rfidMosi 11
+//#define rfidMiso 12
+//#define rfidSck 13
 //----------------------------------------
 
 //----------Create instances for Servo and RFID scanner----------
@@ -137,4 +137,3 @@ int getID() {
 //
 //    // Dump debug info about the card. PICC_HaltA() is automatically called.
 //    mfrc522.PICC_DumpToSerial(&(mfrc522.uid));
-  
